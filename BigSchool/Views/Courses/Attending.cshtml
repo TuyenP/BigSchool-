@@ -1,0 +1,73 @@
+﻿@model BigSchool.ViewModels.CoursesViewModel
+
+@{
+    ViewBag.Title = "Attending";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách các khoá học</h2>
+
+<ul class="course">
+    @foreach (var course in Model.UpcommingCourses)
+    {
+        <li>
+            <div class="date">
+                <div class="month">
+                    @course.DateTime.ToString("MM")
+                </div>
+                <div class="day">
+                    @course.DateTime.ToString("dd")
+                </div>
+            </div>
+            <div class="details">
+                <span class="lecturer">
+                    @course.Lecturer.Name
+                    @if (Model.ShowAction)
+                    {
+                        <button data-user-id="@course.LecturerId" class="btn btn-default btn-sm js-togegle-follow">Follow</button>
+                    }
+
+                </span>
+                <span class="category">
+                    @course.Category.Name
+                </span>
+                
+
+            </div>
+        </li>
+
+    }
+</ul>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".js-togegle-attendance").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/Attendances", { courseId: button.attr("data-course-id") })
+                    .done(function () {
+                        button
+                            .removeClass("btn-default")
+                            .addClass("btn-info")
+                            .text("Going");
+                    })
+                    .fail(function () {
+                        alert("Đã tham gia!");
+                    })
+            });
+
+            $(".js-togegle-follow").click(function (e) {
+                var button = $(e.target);
+                $.post("/api/followings", { followeeId: button.attr("data-user-id") })
+                    .done(function () {
+                        button
+                            .text("Following");
+                    })
+                    .fail(function () {
+                        alert("Đã theo dõi!");
+                    })
+            })
+        });
+    </script>
+}
