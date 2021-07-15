@@ -186,9 +186,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202107071703523_InitDatabase.cs" />
-    <Compile Include="Migrations\202107071703523_InitDatabase.Designer.cs">
-      <DependentUpon>202107071703523_InitDatabase.cs</DependentUpon>
+    <Compile Include="Migrations\202107071703523_CreateTableCourse.cs" />
+    <Compile Include="Migrations\202107071703523_CreateTableCourse.Designer.cs">
+      <DependentUpon>202107071703523_CreateTableCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202107080121362_AddAttendance.cs" />
     <Compile Include="Migrations\202107080121362_AddAttendance.Designer.cs">
@@ -202,6 +202,10 @@
     <Compile Include="Migrations\202107082356123_AddIsCanceledColumnToCourse.Designer.cs">
       <DependentUpon>202107082356123_AddIsCanceledColumnToCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107150654169_AddMoreCourse.cs" />
+    <Compile Include="Migrations\202107150654169_AddMoreCourse.Designer.cs">
+      <DependentUpon>202107150654169_AddMoreCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -213,6 +217,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CourseOl.cs" />
     <Compile Include="ViewModels\CoursesViewModel.cs" />
     <Compile Include="ViewModels\CourseViewModel.cs" />
     <Compile Include="ViewModels\FutureDate.cs" />
@@ -284,10 +289,10 @@
     <Content Include="Views\Courses\Attending.cshtml" />
     <Content Include="Views\Courses\Mine.cshtml" />
     <Content Include="Views\Courses\Edit.cshtml" />
+    <Content Include="Views\Courses\Following.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Followings\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -303,8 +308,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202107071703523_InitDatabase.resx">
-      <DependentUpon>202107071703523_InitDatabase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107071703523_CreateTableCourse.resx">
+      <DependentUpon>202107071703523_CreateTableCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107080121362_AddAttendance.resx">
       <DependentUpon>202107080121362_AddAttendance.cs</DependentUpon>
@@ -314,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107082356123_AddIsCanceledColumnToCourse.resx">
       <DependentUpon>202107082356123_AddIsCanceledColumnToCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107150654169_AddMoreCourse.resx">
+      <DependentUpon>202107150654169_AddMoreCourse.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
