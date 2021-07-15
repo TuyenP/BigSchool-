@@ -98,7 +98,9 @@ namespace BigSchool.Controllers
         [ResponseType(typeof(Attendance))]
         public IHttpActionResult DeleteAttendance(int id)
         {
-            Attendance attendance = _dbContext.Attendances.Find(id);
+            var userId = User.Identity.GetUserId();
+
+            var attendance = _dbContext.Attendances.SingleOrDefault(a => a.AttendeeId == userId && a.CourseId == id);
             if (attendance == null)
             {
                 return NotFound();

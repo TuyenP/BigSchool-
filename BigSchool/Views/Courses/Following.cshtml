@@ -1,11 +1,11 @@
 ﻿@model BigSchool.ViewModels.CoursesViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Attending";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Danh sách các khoá học </h2>
+<h2>Danh sách các khoá học đã theo dõi</h2>
 
 <ul class="course">
     @foreach (var course in Model.UpcommingCourses)
@@ -47,6 +47,7 @@
                         {
                             <button data-course-id="@course.Id" class="btn btn-info btn-sm js-togegle-attendance">Going</button>
                         }
+
                     }
                 </span>
 
